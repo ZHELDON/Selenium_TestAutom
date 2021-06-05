@@ -1,5 +1,6 @@
 package MiprimerTest;
 
+import Common.Config;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,11 +29,12 @@ public class MiPrimerTest
         driver.manage().window().maximize();
 
         //Envia la direccion del sistema de  pruebas al nevegador
-        driver.get("https://www.amazon.com/");
+        //driver.get("https://www.amazon.com/");
+        driver.get("http://automationpractice.com/index.php");
 
     } //Termina la configuracion del navegador
 
-    @Test
+  /*  @Test
     public void TestAmazon() throws InterruptedException
     {
         //Thread.sleep(5000);
@@ -48,13 +50,73 @@ public class MiPrimerTest
         Selectfeindex.click();
         //inputBusqueda.submit(); a-link-normal a-text-normal
         Thread.sleep(4000);
+    } */
+
+  /*  @Test
+    public void UsoXPath() throws InterruptedException
+    {
+        //Xpath absoluto
+        /* WebElement ButtonMarket = driver.findElement(By.xpath("/html/body/div[1]/header/div/div[1]/div[3]/div/a[4]/div[2]/span[2]"));
+        ButtonMarket.click();
+        Thread.sleep(4000);*/
+
+        //Xpath Relativo
+        /*WebElement ButtonMarket = driver.findElement(By.xpath("//span[@id='nav-cart-count']"));
+        ButtonMarket.click();
+        Thread.sleep(4000);*/
+
+        // XPath Relativo con contenido de Texto
+        /*Thread.sleep(7000);
+        WebElement CuentasYListas = driver.findElement(By.xpath("//*[contains(text(),'Account &')]"));
+        CuentasYListas.click();
+        Thread.sleep(4000);*/
+
+        //Uso Xpath multiples atributos
+        /*WebElement inputMultiATR = driver.findElement(By.xpath("//input[@id ='twotabsearchtextbox' and @dir='auto']"));
+        inputMultiATR.click();
+        inputMultiATR.clear();
+        inputMultiATR.sendKeys("Celulares");
+        inputMultiATR.submit();
+        Thread.sleep(4000);*/
+
+        //Uso de Xpath Padre e Hijo
+        /*WebElement inputRelationship = driver.findElement(By.xpath("//div/input[@id ='twotabsearchtextbox' and @dir='auto']"));
+        inputRelationship.click();
+        inputRelationship.clear();
+        inputRelationship.sendKeys("Celulares");
+        inputRelationship.submit();
+        Thread.sleep(4000);
+
+
+    }*/
+
+    @Test
+    public void HappyPathLogin() throws InterruptedException
+    {
+        WebElement intoLogin = driver.findElement(By.xpath("//div/a[@class='login']"));
+        intoLogin.click();
+        Thread.sleep(2000);
+        WebElement emailInput = driver.findElement(By.id("email"));
+        emailInput.click();
+        emailInput.clear();
+        emailInput.sendKeys(Config.user);
+        //Thread.sleep(1000);
+        WebElement passwordInput = driver.findElement(By.id("passwd"));
+        passwordInput.click();
+        passwordInput.clear();
+        passwordInput.sendKeys(Config.password);
+        //SubmitLogin
+        //Thread.sleep(1000);
+        WebElement ButtonSingIn = driver.findElement(By.id("SubmitLogin"));
+        ButtonSingIn.click();
+        //Thread.sleep(2000);
     }
 
     @After
     public void tearDown()
     {
         //Cierra la instancia del navegador
-        //driver.quit();
+        driver.quit();
     }
 
 }

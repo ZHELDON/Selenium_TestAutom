@@ -90,7 +90,7 @@ public class MiPrimerTest
 
     }*/
 
-    @Test
+    /*@Test
     public void HappyPathLogin() throws InterruptedException
     {
         WebElement intoLogin = driver.findElement(By.xpath("//div/a[@class='login']"));
@@ -110,13 +110,52 @@ public class MiPrimerTest
         WebElement ButtonSingIn = driver.findElement(By.id("SubmitLogin"));
         ButtonSingIn.click();
         //Thread.sleep(2000);
+    }*/
+
+    @Test
+    public void EmailFailedtoLogin() throws InterruptedException
+    {
+        WebElement intoLogin = driver.findElement(By.xpath("//div/a[@class='login']"));
+        intoLogin.click();
+        Thread.sleep(2000);
+        WebElement emailInput = driver.findElement(By.id("email"));
+        emailInput.click();
+        emailInput.clear();
+        emailInput.sendKeys("testbad@test.com");
+        //Thread.sleep(1000);
+        WebElement passwordInput = driver.findElement(By.id("passwd"));
+        passwordInput.click();
+        passwordInput.clear();
+        passwordInput.sendKeys(Config.password);
+        //SubmitLogin
+        //Thread.sleep(1000);
+        WebElement ButtonSingIn = driver.findElement(By.id("SubmitLogin"));
+        ButtonSingIn.click();
+        Thread.sleep(7000);
+        //- //li[contains(text(),"Authentication failed.")]
+        WebElement compareTextResult = driver.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]"));
+        //Campo Email vacio: WebElement compareTextResult = driver.findElement(By.xpath("//li[contains(text(),'An email address required.')]"));
+        //Email sin sintaxis "Ej: test.com" //li[contains(text(),'Invalid email address.')]
+        //Campo Password vacio: Password is required. //li[contains(text(),'Password is required.')]
+        //Password Erroneo: Invalid password. //li[contains(text(),'Invalid password.')]
+        // - //a[contains(text(),'Forgot your password?')]  + Click
+        if(compareTextResult.getText().equalsIgnoreCase  ("Authentication failed."))
+        {
+            System.out.println("Fallo por: Authentication failed.");
+        }
+        else
+        {
+            System.out.println("no encontrado");
+        }
+
+
     }
 
     @After
     public void tearDown()
     {
         //Cierra la instancia del navegador
-        driver.quit();
+        //driver.quit();
     }
 
 }

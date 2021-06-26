@@ -4,9 +4,7 @@ import Common.Config;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
@@ -90,13 +88,25 @@ public class MiPrimerTest
 
     }*/
 
-    /*@Test
+    @Test
     public void HappyPathLogin() throws InterruptedException
     {
         WebElement intoLogin = driver.findElement(By.xpath("//div/a[@class='login']"));
         intoLogin.click();
         Thread.sleep(2000);
+
+
+
         WebElement emailInput = driver.findElement(By.id("email"));
+        //scroll
+        Point classname = emailInput.getLocation();
+        int ycordi = classname.getY() - 200;
+        System.out.println("CordY:"+ycordi);
+        JavascriptExecutor js =(JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,"+ycordi+")");
+        Thread.sleep(2000);
+        //fin scroll
+
         emailInput.click();
         emailInput.clear();
         emailInput.sendKeys(Config.user);
@@ -110,9 +120,9 @@ public class MiPrimerTest
         WebElement ButtonSingIn = driver.findElement(By.id("SubmitLogin"));
         ButtonSingIn.click();
         //Thread.sleep(2000);
-    }*/
+    }
 
-    @Test
+    /*@Test
     public void EmailFailedtoLogin() throws InterruptedException
     {
         WebElement intoLogin = driver.findElement(By.xpath("//div/a[@class='login']"));
@@ -149,13 +159,13 @@ public class MiPrimerTest
         }
 
 
-    }
+    }*/
 
     @After
     public void tearDown()
     {
         //Cierra la instancia del navegador
-        //driver.quit();
+        driver.quit();
     }
 
 }

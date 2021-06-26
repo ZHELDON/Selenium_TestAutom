@@ -166,6 +166,7 @@ public class MiPrimerTest
     {
         //Cierra la instancia del navegador
         driver.quit();
+        //actualización 25062021
     }
 
 }

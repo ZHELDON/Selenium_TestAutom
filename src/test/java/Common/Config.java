@@ -2,6 +2,7 @@ package Common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Config
 {
@@ -14,8 +15,14 @@ public class Config
 
     public static WebDriver navegadorChrome ()
     {
-        System.getProperty("webdriver.chrome.driver", "src/main/resources/Drivers/ChromeDriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/ChromeDriver/chromedriver.exe");
         return new ChromeDriver();
+    }
+
+    public static WebDriver navegadorFirefox ()
+    {
+        System.setProperty("webdriver.gecko.driver", "src/main/resources/Drivers/FirefoxDriver/geckodriver.exe");
+        return new FirefoxDriver();
     }
 
 }

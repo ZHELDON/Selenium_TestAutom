@@ -1,4 +1,4 @@
-package MiprimerTest;
+package Features;
 
 import Common.Config;
 import org.junit.After;
@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.io.IOException;
 
 public class MiPrimerTest
 {
@@ -85,44 +83,43 @@ public class MiPrimerTest
         inputRelationship.submit();
         Thread.sleep(4000);
 
+        // Xpath Vector
+        //div/ul/li[1]/span[@class = 'grower CLOSE' ]   -- li[index]
+
 
     }*/
 
     @Test
-    public void HappyPathLogin() throws InterruptedException
-    {
+    public void HappyPathLogin() throws InterruptedException {
         WebElement intoLogin = driver.findElement(By.xpath("//div/a[@class='login']"));
         intoLogin.click();
         Thread.sleep(2000);
-
-
 
         WebElement emailInput = driver.findElement(By.id("email"));
         //scroll
         Point classname = emailInput.getLocation();
         int ycordi = classname.getY() - 200;
-        System.out.println("CordY:"+ycordi);
-        JavascriptExecutor js =(JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,"+ycordi+")");
+        System.out.println("CordY:" + ycordi);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0," + ycordi + ")");
         Thread.sleep(2000);
         //fin scroll
 
         emailInput.click();
         emailInput.clear();
         emailInput.sendKeys(Config.user);
-        //Thread.sleep(1000);
+        Thread.sleep(1000);
         WebElement passwordInput = driver.findElement(By.id("passwd"));
         passwordInput.click();
         passwordInput.clear();
         passwordInput.sendKeys(Config.password);
         //SubmitLogin
-        //Thread.sleep(1000);
+        Thread.sleep(1000);
         WebElement ButtonSingIn = driver.findElement(By.id("SubmitLogin"));
         ButtonSingIn.click();
         //Thread.sleep(2000);
     }
-
-    /*@Test
+   /* @Test
     public void EmailFailedtoLogin() throws InterruptedException
     {
         WebElement intoLogin = driver.findElement(By.xpath("//div/a[@class='login']"));
@@ -156,19 +153,14 @@ public class MiPrimerTest
         else
         {
             System.out.println("no encontrado");
-        }
-
-
-    }*/
+        }*/
 
     @After
-    public void tearDown()
-    {
-        //Cierra la instancia del navegador
-        driver.quit();
+        public void tearDown() throws InterruptedException
+        {
+            //Cierra la instancia del navegador
+            driver.quit();
 
-        //actualización 26062021.1
-
-    }
+        }
 
 }

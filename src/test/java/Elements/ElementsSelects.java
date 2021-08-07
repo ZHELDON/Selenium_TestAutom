@@ -23,7 +23,7 @@ public class ElementsSelects
     }
 
     //3 ELEMENT BOTON T SHIRTS
-    public By bybottonTSshirts = By.xpath("//div/ul/li[1]/ul/li[1]/a[contains(text(), 'Emily Bodoque')]"); //aqui T-shirts
+    public By bybottonTSshirts = By.xpath("//div/ul/li[1]/ul/li[1]/a[contains(text(), 'T-shirts')]"); //aqui T-shirts
     public WebElement BottonTSshirts (WebDriver driver)
     {
         WebElement bottonTSshirts = driver.findElement(bybottonTSshirts);

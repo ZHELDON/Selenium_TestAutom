@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <listeners>
+        <listener class-name="ExtentReportListener.ExtentReport">
+
+
+        </listener>
+
+
+    </listeners>
+
+
+
+    <test verbose="2" preserve-order="true" name="C:/Users/VG2G05X/Desktop/Selenium_TestAutom">
+        <classes>
+            <class name="Features.Alertas"><methods><include name="alerts"/></methods></class>
+            <class name="Features.DragAndDrog"><methods><include name="dragAndDrop"/></methods></class>
+            <class name="Features.MiPrimerTest"><methods><include name="HappyPathLogin"/></methods></class>
+            <class name="Features.SelectListas"><methods><include name="listaConClicks"/><include name="ListaConSendKeys"/><include name="listaUsandoClase"/></methods></class>
+            <class name="Features.Waits"><methods><include name="tiposWaits"/></methods></class>
+        </classes>
+    </test>
+</suite>

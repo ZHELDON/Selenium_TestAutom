@@ -41,8 +41,8 @@ public class SeleniumUtils
     public  WebElement waitElement(WebDriver driver, By locator )
     {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofSeconds(5));
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(3));
         WebElement elemento = wait.until(new Function<WebDriver, WebElement>() {
 
             public WebElement apply(WebDriver driver) {

@@ -1,10 +1,8 @@
 package Common;
 
-import Features.Login;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest
 {
@@ -13,7 +11,7 @@ public class BaseTest
     Login logIn =new Login();
 
 
-    @Before
+    @BeforeTest
     public void Login () throws Exception
     {
         //Create Driver
@@ -25,7 +23,7 @@ public class BaseTest
         logIn.happyPathLogin(driver);
 
     }
-    @After
+    @AfterTest
     public void tearDown()
     {
         //Cierra la instancia del navegador

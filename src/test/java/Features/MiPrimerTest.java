@@ -1,18 +1,16 @@
 package Features;
 
 import Common.Config;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.*;
 
 public class MiPrimerTest
 {
     private WebDriver driver;
 
     //Inicia la Configuración del navegador
-    @Before
+    @BeforeTest
     public void setUp()
     {
         // Se coloca la dirección del driver, sea chrome, mozilla o edge
@@ -155,7 +153,7 @@ public class MiPrimerTest
             System.out.println("no encontrado");
         }*/
 
-    @After
+    @AfterTest
         public void tearDown() throws InterruptedException
         {
             //Cierra la instancia del navegador

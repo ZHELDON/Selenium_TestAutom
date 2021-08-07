@@ -1,4 +1,4 @@
-package Features;
+package Common;
 
 import Common.Config;
 import Elements.ElementsLogin;
